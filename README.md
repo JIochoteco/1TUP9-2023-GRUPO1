@@ -22,7 +22,7 @@ Algoritmo TP_Programacion1_grupo1
 	
 	contadorBB=0;
 	contadorBS=0;
-    contadorRB=0;
+        contadorRB=0;
 	contadorMM=0;
 	
 	
@@ -62,6 +62,7 @@ Algoritmo TP_Programacion1_grupo1
 							descRuta= "Ruta:Buenos Aires-Salta";
 							Escribir descRuta;
 							cargaDatos(arregloBS, ruta, descRuta,contadorBS);
+							
 						3:
 							descRuta= "Ruta:Rosario-Buenos Aires";
 							Escribir descRuta;
@@ -179,13 +180,15 @@ Algoritmo TP_Programacion1_grupo1
 								leer ord;				
 							Hasta Que ord="a" o ord="A" o ord="b" o ord="B"
 							
+							Listado(arregloBB,contadorBB)
+							
 							si ord = "a" o ord ="A" entonces
 								ordenamientoAscendente(arregloBB,contadorBB)
 							SiNo
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							muestraDatos(arregloBB,contadorBB)
+							Listado(arregloBB,contadorBB)
 						2:
 							descRuta= "Ruta:Buenos Aires-Salta";
 							Escribir descRuta;
@@ -202,7 +205,7 @@ Algoritmo TP_Programacion1_grupo1
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							muestraDatos(arregloBS,contadorBS)
+							Listado(arregloBS,contadorBS)
 							
 						3:
 							descRuta= "Ruta:Rosario-Buenos Aires";
@@ -220,7 +223,7 @@ Algoritmo TP_Programacion1_grupo1
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							muestraDatos(arregloRB,contadorRB)
+							Listado(arregloRB,contadorRB)
 						4:
 							descRuta="Ruta:Mar del Plata-Mendoza";
 							Escribir descRuta;
@@ -237,7 +240,7 @@ Algoritmo TP_Programacion1_grupo1
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							muestraDatos(arregloMPM,contadorMPM)
+							Listado(arregloMPM,contadorMPM)
 							
 						5: 
 							escribir "";  // volver al menú anterior
@@ -277,7 +280,7 @@ FinAlgoritmo
 
 
 //------------------------------------------------------------------------------------------//
-//ventas de pasajes BB
+//ventas de pasajes 
 SubProceso cargaDatos(arreglo,ruta,descRuta,contador Por Referencia)
 	
 	arreglo[contador,0]=descRuta;
@@ -318,7 +321,7 @@ SubProceso cargaDatos(arreglo,ruta,descRuta,contador Por Referencia)
 	arreglo[contador,7]=ConvertirATexto(valorPasaje(ruta,contador));
 	
 	muestraDatos(arreglo,contador);
-	contador=contador+1;// tuve que poner el contador arriba  porque si no no mostraba todos los datos!
+	contador=contador+1;
 	
 FinSubProceso
 
@@ -327,40 +330,40 @@ Funcion return<-valorPasaje(ruta,contador)
 	 definir return como entero;
 	 Segun ruta Hacer
 		1:
-			return=150.000;
+			return=150000;
 			si contador>20 y contador<=60 Entonces
-				return=165.000;
+				return=165000;
 			SiNo
 				si contador>60 Entonces
-					return=180.000;
+					return=180000;
 				FinSi
 			FinSi
 		2:
-			return=120.000;
+			return=120000;
 			si contador>20 y contador<=60 Entonces
-				return=132.000;
+				return=132000;
 			SiNo
 				si contador>60 Entonces
-					return=150.000;
+					return=150000;
 				FinSi
 			FinSi
 			
 		3:
 			return=70.000;
 			si contador>10 y contador<=40 Entonces
-				return=80.500;
+				return=80500;
 			SiNo
 				si contador>40 Entonces
-					return=95.000;
+					return=95000;
 				FinSi
 			FinSi
 		4:
 			return=95.000;
 				si contador>10 y contador<=40 Entonces
-					return=109.250;
+					return=109250;
 				SiNo
 					si contador>40 Entonces
-						return=125.000;
+						return=125000;
 					FinSi
 				FinSi;
 				
@@ -370,10 +373,10 @@ FinFuncion
 //-------------------------------------------------------------------------------------------------------------//
 //mostrar datos de las ventas
 SubProceso muestraDatos(arreglo,contador)
-	definir i como entero;
+	
 	Escribir " "
     Escribir "Datos ingresados:";
-    Escribir "Ruta: " ,arreglo[contador,i];	
+    Escribir "Ruta: " ,arreglo[contador,0];	
 	escribir "Nombre y apellido: ", arreglo[contador,1];		
 	escribir "Dni: ", arreglo[contador,2];		
 	escribir "Telefono: ", arreglo[contador,3];		
@@ -390,9 +393,35 @@ SubProceso muestraDatos(arreglo,contador)
 	Escribir ""
 FinSubProceso
 
+//-------------------------------------------------------------------------------------------------------------//
+//mostrar datos ordenamiento
+SubProceso Listado(arreglo,contador)
+	definir i como entero;
+	para i desde 0 hasta contador-1 con paso 1 hacer
+	Escribir " "
+    Escribir "Listado de pasajeros:";
+    Escribir "Ruta: " ,arreglo[i,0];	
+	escribir "Nombre y apellido: ", arreglo[i,1];		
+	escribir "Dni: ", arreglo[i,2];		
+	escribir "Telefono: ", arreglo[i,3];		
+	
+	Si arreglo[i,4] = "si" Entonces
+		escribir "Usted tiene equipaje en bodega: verdadero";
+	Sino
+		escribir "Usted no tiene equipaje en bodega: falso";
+	FinSi
+	
+	escribir "numero de pasajero frecuente: " , arreglo[i,5];
+	Escribir "Nro de asiento: " ,arreglo[i,6]
+	Escribir "Valor Pasaje: ", arreglo[i,7]
+	Escribir ""
+FinPara
+
+FinSubProceso
+
 
 //------------------------------------------------------------------------------------------//
-//busqueda de pasajero por nombre y apellido 
+//busqueda de pasajero por asiento
 SubProceso busquedaPorAsiento(arreglo,contador)
 	definir i como entero;
 	definir datoABuscar Como Entero;
@@ -423,7 +452,7 @@ SubProceso busquedaPorAsiento(arreglo,contador)
 FinSubProceso
 
 //----------------------------------------------------------------------------------------
-
+//busqueda de pasajero por nombre y apellido 
 SubProceso busquedaPorPasajero(arreglo,contador)
 	definir i como entero;
 	definir datoABuscar Como caracter;
@@ -457,39 +486,40 @@ FinSubProceso
 //---------------------------------------------------------------------------------------
 
 subproceso ordenamientoAscendente(arreglo,contador)
-	definir i, j, posMenor Como Entero
+	definir i, j Como Entero
 	definir aux,aux2,aux3,aux4,aux5,aux6,aux7 Como Caracter
 	
-	para i=0 hasta contador-2 Hacer
-		para j=i+1 hasta contador-1 Hacer
-			si arreglo[i,6] < arreglo[posMenor,6] Entonces  // convertir a numero
+	
+	para i=0 hasta contador-2 con paso 1 Hacer		
+		para j=i+1 hasta contador-1  con paso 1 Hacer			
+			si arreglo[i,6] > arreglo[j,6] Entonces  // convertir a numero
 				aux <- arreglo[i,6]
-				arreglo[i,6] <- arreglo[posMenor,6]
-				arreglo[posMenor,6] <- aux
+				arreglo[i,6] <- arreglo[j,6]
+				arreglo[j,6] <- aux
 				
-				aux2 <- arreglo[i,0]
-				arreglo[i,0] <- arreglo[posMenor,0]
-				arreglo[posMenor,0] <- aux2	
+				aux <- arreglo[i,0]
+				arreglo[i,0] <- arreglo[j,0]
+				arreglo[j,0] <- aux
 				
-				aux2 <- arreglo[i,1]
-				arreglo[i,1] <- arreglo[posMenor,1]
-				arreglo[posMenor,1] <- aux3
+				aux <- arreglo[i,1]
+				arreglo[i,1] <- arreglo[j,1]
+				arreglo[j,1] <- aux
 				
-				aux2 <- arreglo[i,2]
-				arreglo[i,2] <- arreglo[posMenor,2]
-				arreglo[posMenor,2] <- aux4	
+				aux <- arreglo[i,2]
+				arreglo[i,2] <- arreglo[j,2]
+				arreglo[j,2] <- aux
 				
-				aux2 <- arreglo[i,3]
-				arreglo[i,3] <- arreglo[posMenor,3]
-				arreglo[posMenor,3] <- aux5	
+				aux <- arreglo[i,3]
+				arreglo[i,3] <- arreglo[j,3]
+				arreglo[j,3] <- aux
 				
-				aux2 <- arreglo[i,4]
-				arreglo[i,4] <- arreglo[posMenor,4]
-				arreglo[posMenor,4] <- aux6
+				aux <- arreglo[i,4]
+				arreglo[i,4] <- arreglo[j,4]
+				arreglo[j,4] <- aux
 				
-				aux2 <- arreglo[i,5]
-				arreglo[i,5] <- arreglo[posMenor,5]
-				arreglo[posMenor,5] <- aux7
+				aux <- arreglo[i,5]
+				arreglo[i,5] <- arreglo[j,5]
+				arreglo[j,5] <- aux
 				
 				
 			FinSi
@@ -502,39 +532,39 @@ FinSubProceso
 
 //----------------------------------------------------------------------------------------------------------------
 subproceso ordenamientoDescendente(arreglo,contador)
-	definir i, j, posMenor Como Entero
+	definir i, j Como Entero
 	definir aux,aux2,aux3,aux4,aux5,aux6,aux7 Como Caracter
 	
 	para i=0 hasta contador-2 Hacer
 		para j=i+1 hasta contador-1 Hacer
-			si arreglo[i,6] > arreglo[posMenor,6] Entonces  // convertir a numero
+			si arreglo[i,6] < arreglo[j,6] Entonces  // convertir a numero
 				aux <- arreglo[i,6]
-				arreglo[i,6] <- arreglo[posMenor,6]
-				arreglo[posMenor,6] <- aux
+				arreglo[i,6] <- arreglo[j,6]
+				arreglo[j,6] <- aux
 				
-				aux2 <- arreglo[i,0]
-				arreglo[i,0] <- arreglo[posMenor,0]
-				arreglo[posMenor,0] <- aux2	
+				aux <- arreglo[i,0]
+				arreglo[i,0] <- arreglo[j,0]
+				arreglo[j,0] <- aux
 				
-				aux2 <- arreglo[i,1]
-				arreglo[i,1] <- arreglo[posMenor,1]
-				arreglo[posMenor,1] <- aux3
+				aux <- arreglo[i,1]
+				arreglo[i,1] <- arreglo[j,1]
+				arreglo[j,1] <- aux
 				
-				aux2 <- arreglo[i,2]
-				arreglo[i,2] <- arreglo[posMenor,2]
-				arreglo[posMenor,2] <- aux4	
+				aux <- arreglo[i,2]
+				arreglo[i,2] <- arreglo[j,2]
+				arreglo[j,2] <- aux
 				
-				aux2 <- arreglo[i,3]
-				arreglo[i,3] <- arreglo[posMenor,3]
-				arreglo[posMenor,3] <- aux5	
+				aux <- arreglo[i,3]
+				arreglo[i,3] <- arreglo[j,3]
+				arreglo[j,3] <- aux
 				
-				aux2 <- arreglo[i,4]
-				arreglo[i,4] <- arreglo[posMenor,4]
-				arreglo[posMenor,4] <- aux6
+				aux <- arreglo[i,4]
+				arreglo[i,4] <- arreglo[j,4]
+				arreglo[j,4] <- aux
 				
-				aux2 <- arreglo[i,5]
-				arreglo[i,5] <- arreglo[posMenor,5]
-				arreglo[posMenor,5] <- aux7
+				aux <- arreglo[i,5]
+				arreglo[i,5] <- arreglo[j,5]
+				arreglo[j,5] <- aux
 				
 				
 			FinSi
@@ -543,3 +573,4 @@ subproceso ordenamientoDescendente(arreglo,contador)
 	
 	
 FinSubProceso
+	
