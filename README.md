@@ -487,7 +487,7 @@ FinSubProceso
 
 subproceso ordenamientoAscendente(arreglo,contador)
 	definir i, j Como Entero
-	definir aux,aux2,aux3,aux4,aux5,aux6,aux7 Como Caracter
+	definir aux Como Caracter
 	
 	
 	para i=0 hasta contador-2 con paso 1 Hacer		
@@ -533,7 +533,7 @@ FinSubProceso
 //----------------------------------------------------------------------------------------------------------------
 subproceso ordenamientoDescendente(arreglo,contador)
 	definir i, j Como Entero
-	definir aux,aux2,aux3,aux4,aux5,aux6,aux7 Como Caracter
+	definir aux Como Caracter
 	
 	para i=0 hasta contador-2 Hacer
 		para j=i+1 hasta contador-1 Hacer
