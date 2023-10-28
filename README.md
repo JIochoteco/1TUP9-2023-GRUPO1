@@ -22,7 +22,7 @@ Algoritmo TP_Programacion1_grupo1
 	
 	contadorBB=0;
 	contadorBS=0;
-        contadorRB=0;
+    contadorRB=0;
 	contadorMM=0;
 	
 	
@@ -50,7 +50,7 @@ Algoritmo TP_Programacion1_grupo1
 					Escribir "2-Buenos Aires-Salta";
 					Escribir "3-Rosario-Buenos Aires";
 					Escribir "4-Mar del Plata-Mendoza";
-					Escribir "5-Volver a menú principal"					
+					Escribir "5-Volver a menú principal";					
 					Leer ruta;
 					
 					Segun ruta Hacer
@@ -88,13 +88,13 @@ Algoritmo TP_Programacion1_grupo1
 					Escribir "2-Buenos Aires-Salta";
 					Escribir "3-Rosario-Buenos Aires";
 					Escribir "4-Mar del Plata-Mendoza";
-					Escribir "5-Volver a menú principal"					
+					Escribir "5-Volver a menú principal";					
 					Leer ruta;
 					Segun ruta Hacer
 						1:
 							descRuta="Ruta:Buenos Aires-Bariloche";
 							Escribir descRuta;						
-							busquedaPorAsiento(arregloBB,contadorBB)
+							busquedaPorAsiento(arregloBB,contadorBB);
 						2:
 							descRuta= "Ruta:Buenos Aires-Salta";
 							Escribir descRuta;
@@ -127,13 +127,13 @@ Algoritmo TP_Programacion1_grupo1
 					Escribir "2-Buenos Aires-Salta";
 					Escribir "3-Rosario-Buenos Aires";
 					Escribir "4-Mar del Plata-Mendoza";
-					Escribir "5-Volver a menú principal"					
+					Escribir "5-Volver a menú principal";					
 					Leer ruta;
 					Segun ruta Hacer
 						1:
 							descRuta="Ruta:Buenos Aires-Bariloche";
 							Escribir descRuta;						
-							busquedaPorPasajero(arregloBB,contadorBB)
+							busquedaPorPasajero(arregloBB,contadorBB);
 						2:
 							descRuta= "Ruta:Buenos Aires-Salta";
 							Escribir descRuta;
@@ -167,7 +167,7 @@ Algoritmo TP_Programacion1_grupo1
 					Escribir "2-Buenos Aires-Salta";
 					Escribir "3-Rosario-Buenos Aires";
 					Escribir "4-Mar del Plata-Mendoza";
-					Escribir "5-Volver a menú principal"					
+					Escribir "5-Volver a menú principal";					
 					Leer ruta;
 					Segun ruta Hacer
 						1:
@@ -180,15 +180,15 @@ Algoritmo TP_Programacion1_grupo1
 								leer ord;				
 							Hasta Que ord="a" o ord="A" o ord="b" o ord="B"
 							
-							Listado(arregloBB,contadorBB)
+							Listado(arregloBB,contadorBB);
 							
 							si ord = "a" o ord ="A" entonces
-								ordenamientoAscendente(arregloBB,contadorBB)
+								ordenamientoAscendente(arregloBB,contadorBB);
 							SiNo
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							Listado(arregloBB,contadorBB)
+							Listado(arregloBB,contadorBB);
 						2:
 							descRuta= "Ruta:Buenos Aires-Salta";
 							Escribir descRuta;
@@ -200,12 +200,12 @@ Algoritmo TP_Programacion1_grupo1
 							Hasta Que ord="a" o ord="A" o ord="b" o ord="B"
 							
 							si ord = "a" o ord ="A" entonces
-								ordenamientoAscendente(arregloBS,contadorBS)
+								ordenamientoAscendente(arregloBS,contadorBS);
 							SiNo
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							Listado(arregloBS,contadorBS)
+							Listado(arregloBS,contadorBS);
 							
 						3:
 							descRuta= "Ruta:Rosario-Buenos Aires";
@@ -218,12 +218,12 @@ Algoritmo TP_Programacion1_grupo1
 							Hasta Que ord="a" o ord="A" o ord="b" o ord="B"
 							
 							si ord = "a" o ord ="A" entonces
-								ordenamientoAscendente(arregloRB,contadorRB)
+								ordenamientoAscendente(arregloRB,contadorRB);
 							SiNo
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							Listado(arregloRB,contadorRB)
+							Listado(arregloRB,contadorRB);
 						4:
 							descRuta="Ruta:Mar del Plata-Mendoza";
 							Escribir descRuta;
@@ -235,12 +235,12 @@ Algoritmo TP_Programacion1_grupo1
 							Hasta Que ord="a" o ord="A" o ord="b" o ord="B"
 							
 							si ord = "a" o ord ="A" entonces
-								ordenamientoAscendente(arregloMPM,contadorMPM)
+								ordenamientoAscendente(arregloMPM,contadorMPM);
 							SiNo
 								ordenamientoDescendente(arregloBB,contadorBB);
 							FinSi
 							
-							Listado(arregloMPM,contadorMPM)
+							Listado(arregloMPM,contadorMPM);
 							
 						5: 
 							escribir "";  // volver al menú anterior
@@ -280,14 +280,14 @@ FinAlgoritmo
 
 
 //------------------------------------------------------------------------------------------//
-//ventas de pasajes 
+//ventas de pasajes BB
 SubProceso cargaDatos(arreglo,ruta,descRuta,contador Por Referencia)
 	
 	arreglo[contador,0]=descRuta;
 	
 	escribir "ingrese el nombre y apellido";
 	leer arreglo[contador,1];
-	arreglo[contador,1] <- Minusculas(arreglo[contador,1])
+	arreglo[contador,1] <- Minusculas(arreglo[contador,1]);
 	
 	escribir "ingrese dni";
 	leer arreglo[contador,2];
@@ -298,7 +298,7 @@ SubProceso cargaDatos(arreglo,ruta,descRuta,contador Por Referencia)
 	repetir
 		escribir "Ingrese si tiene equipaje en bodega (si/no): ";
 		leer arreglo[contador, 4];
-		arreglo[contador, 4]<- Minusculas(arreglo[contador, 4])
+		arreglo[contador, 4]<- Minusculas(arreglo[contador, 4]);
 		
 		Si arreglo[contador,4] = "si" Entonces
 			escribir "Usted tiene equipaje en bodega: verdadero";
@@ -374,7 +374,7 @@ FinFuncion
 //mostrar datos de las ventas
 SubProceso muestraDatos(arreglo,contador)
 	
-	Escribir " "
+	Escribir " ";
     Escribir "Datos ingresados:";
     Escribir "Ruta: " ,arreglo[contador,0];	
 	escribir "Nombre y apellido: ", arreglo[contador,1];		
@@ -388,17 +388,17 @@ SubProceso muestraDatos(arreglo,contador)
 	FinSi
 	
 	escribir "numero de pasajero frecuente: " , arreglo[contador,5];
-	Escribir "Nro de asiento: " ,arreglo[contador,6]
-	Escribir "Valor Pasaje: ", arreglo[contador,7]
-	Escribir ""
+	Escribir "Nro de asiento: " ,arreglo[contador,6];
+	Escribir "Valor Pasaje: ", arreglo[contador,7];
+	Escribir "";
 FinSubProceso
 
 //-------------------------------------------------------------------------------------------------------------//
 //mostrar datos ordenamiento
 SubProceso Listado(arreglo,contador)
 	definir i como entero;
-	para i desde 0 hasta contador-1 con paso 1 hacer
-	Escribir " "
+	para i <- 0 hasta contador-1 con paso 1 hacer
+	Escribir " ";
     Escribir "Listado de pasajeros:";
     Escribir "Ruta: " ,arreglo[i,0];	
 	escribir "Nombre y apellido: ", arreglo[i,1];		
@@ -412,9 +412,9 @@ SubProceso Listado(arreglo,contador)
 	FinSi
 	
 	escribir "numero de pasajero frecuente: " , arreglo[i,5];
-	Escribir "Nro de asiento: " ,arreglo[i,6]
-	Escribir "Valor Pasaje: ", arreglo[i,7]
-	Escribir ""
+	Escribir "Nro de asiento: " ,arreglo[i,6];
+	Escribir "Valor Pasaje: ", arreglo[i,7];
+	Escribir "";
 FinPara
 
 FinSubProceso
@@ -486,40 +486,40 @@ FinSubProceso
 //---------------------------------------------------------------------------------------
 
 subproceso ordenamientoAscendente(arreglo,contador)
-	definir i, j Como Entero
-	definir aux Como Caracter
+	definir i, j Como Entero;
+	definir aux Como Caracter;
 	
 	
 	para i=0 hasta contador-2 con paso 1 Hacer		
 		para j=i+1 hasta contador-1  con paso 1 Hacer			
 			si arreglo[i,6] > arreglo[j,6] Entonces  // convertir a numero
-				aux <- arreglo[i,6]
-				arreglo[i,6] <- arreglo[j,6]
-				arreglo[j,6] <- aux
+				aux <- arreglo[i,6];
+				arreglo[i,6] <- arreglo[j,6];
+				arreglo[j,6] <- aux;
 				
-				aux <- arreglo[i,0]
-				arreglo[i,0] <- arreglo[j,0]
-				arreglo[j,0] <- aux
+				aux <- arreglo[i,0];
+				arreglo[i,0] <- arreglo[j,0];
+				arreglo[j,0] <- aux;
 				
-				aux <- arreglo[i,1]
-				arreglo[i,1] <- arreglo[j,1]
-				arreglo[j,1] <- aux
+				aux <- arreglo[i,1];
+				arreglo[i,1] <- arreglo[j,1];
+				arreglo[j,1] <- aux;
 				
-				aux <- arreglo[i,2]
-				arreglo[i,2] <- arreglo[j,2]
-				arreglo[j,2] <- aux
+				aux <- arreglo[i,2];
+				arreglo[i,2] <- arreglo[j,2];
+				arreglo[j,2] <- aux;
 				
-				aux <- arreglo[i,3]
-				arreglo[i,3] <- arreglo[j,3]
-				arreglo[j,3] <- aux
+				aux <- arreglo[i,3];
+				arreglo[i,3] <- arreglo[j,3];
+				arreglo[j,3] <- aux;
 				
-				aux <- arreglo[i,4]
-				arreglo[i,4] <- arreglo[j,4]
-				arreglo[j,4] <- aux
+				aux <- arreglo[i,4];
+				arreglo[i,4] <- arreglo[j,4];
+				arreglo[j,4] <- aux;
 				
-				aux <- arreglo[i,5]
-				arreglo[i,5] <- arreglo[j,5]
-				arreglo[j,5] <- aux
+				aux <- arreglo[i,5];
+				arreglo[i,5] <- arreglo[j,5];
+				arreglo[j,5] <- aux;
 				
 				
 			FinSi
@@ -532,39 +532,39 @@ FinSubProceso
 
 //----------------------------------------------------------------------------------------------------------------
 subproceso ordenamientoDescendente(arreglo,contador)
-	definir i, j Como Entero
-	definir aux Como Caracter
+	definir i, j Como Entero;
+	definir aux Como Caracter;
 	
 	para i=0 hasta contador-2 Hacer
 		para j=i+1 hasta contador-1 Hacer
 			si arreglo[i,6] < arreglo[j,6] Entonces  // convertir a numero
-				aux <- arreglo[i,6]
-				arreglo[i,6] <- arreglo[j,6]
-				arreglo[j,6] <- aux
+				aux <- arreglo[i,6];
+				arreglo[i,6] <- arreglo[j,6];
+				arreglo[j,6] <- aux;
 				
-				aux <- arreglo[i,0]
-				arreglo[i,0] <- arreglo[j,0]
-				arreglo[j,0] <- aux
+				aux <- arreglo[i,0];
+				arreglo[i,0] <- arreglo[j,0];
+				arreglo[j,0] <- aux;
 				
-				aux <- arreglo[i,1]
-				arreglo[i,1] <- arreglo[j,1]
-				arreglo[j,1] <- aux
+				aux <- arreglo[i,1];
+				arreglo[i,1] <- arreglo[j,1];
+				arreglo[j,1] <- aux;
 				
-				aux <- arreglo[i,2]
-				arreglo[i,2] <- arreglo[j,2]
-				arreglo[j,2] <- aux
+				aux <- arreglo[i,2];
+				arreglo[i,2] <- arreglo[j,2];
+				arreglo[j,2] <- aux;
 				
-				aux <- arreglo[i,3]
-				arreglo[i,3] <- arreglo[j,3]
-				arreglo[j,3] <- aux
+				aux <- arreglo[i,3];
+				arreglo[i,3] <- arreglo[j,3];
+				arreglo[j,3] <- aux;
 				
-				aux <- arreglo[i,4]
-				arreglo[i,4] <- arreglo[j,4]
-				arreglo[j,4] <- aux
+				aux <- arreglo[i,4];
+				arreglo[i,4] <- arreglo[j,4];
+				arreglo[j,4] <- aux;
 				
-				aux <- arreglo[i,5]
-				arreglo[i,5] <- arreglo[j,5]
-				arreglo[j,5] <- aux
+				aux <- arreglo[i,5];
+				arreglo[i,5] <- arreglo[j,5];
+				arreglo[j,5] <- aux;
 				
 				
 			FinSi
