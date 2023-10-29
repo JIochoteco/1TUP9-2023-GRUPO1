@@ -261,9 +261,11 @@ Algoritmo TP_Programacion1_grupo1
 						"a":
 							escribir "se eligio cantidad de pasajes vendidos por ruta aerea";
 							//SubProceso cantidad de pasajes vendidos por ruta aerea
+							cantidadpasajeros(contadorBB, contadorBS, contadorMM, contadorRB);
 						"b":
 							Escribir "se eligio se eligio porcentaje de ventas por ruta aerea";
 							//SubProceso porcentaje  de ventas por ruta aerea
+							porcentajeventas(contadorBB, contadorBS, contadorMM, contadorRB);
 						De Otro Modo:
 							Escribir "Solo se pueden seleccionar las letras a o b. Ingrese de nuevo, por favor";
 					FinSegun
@@ -573,4 +575,22 @@ subproceso ordenamientoDescendente(arreglo,contador)
 	
 	
 FinSubProceso
+
+
+//cantidad de pasajeros
+SubProceso cantidadpasajeros(contadorBB, contadorBS, contadorMM, contadorRB)
+	Escribir "Se vendieron: ",contadorBB, " pasajes para la ruta Buenos Aires-Bariloche";
+	Escribir "Se vendieron: ",contadorBS, " pasajes para la ruta Buenos Aires-Salta";
+	Escribir "Se vendieron: ",contadorMM, " pasajes para la ruta Mar del Plata-Mendoza";
+	Escribir "Se vendieron: ",contadorRB, " pasajes para la ruta Rosario-Buenos Aires";
+	
+FinSubProceso
+//porcentaje de ventas por ruta
+Funcion porcentajeventas(contadorBB, contadorBS, contadorMM, contadorRB)
+	Escribir "Para la ruta Buenos Aires-Bariloche se vendió el:% ", (contadorBB*100)/120;
+	Escribir "Para la ruta Buenos Aires-Salta se vendió el:% ", (contadorBS*100)/120;
+	Escribir "Para la ruta Mar del Plata-Mendoza se vendió el:% ", (contadorMM*100)/80;
+	Escribir "Para la ruta Rosario-Buenos Aires se vendió el:% ", (contadorRB*100)/80;
+	
+FinFuncion
 	
